@@ -6,7 +6,7 @@
 # Install and load the logger package
 library(logger)
 
-path <-  function(data_set_name) {
+path_data <-  function(data_set_name) {
 # Verify data set path
 full_path <- file.path("data", data_set_name)
 tryCatch({
@@ -18,3 +18,12 @@ tryCatch({
 }) 
 }
 
+path_scripts <- function() {
+tryCatch({
+  file_path <- normalizePath("code", mustWork = TRUE)
+  return(file_path)
+}, error = function(e) {
+    log_error(paste(e$message))
+    return(NULL)
+}) 
+}

@@ -4,7 +4,7 @@
 # Description: Ensure all required libraries are installed and loaded.
 
 install_libraries <- function() {
-  libs <- c("logger", "dplyr", "ggplot2") # Add other libraries as needed
+  libs <- c("logger", "dplyr", "ggplot2","shiny") # Add other libraries as needed
   for (lib in libs) {
     if (!require(lib, character.only = TRUE, quietly = TRUE)) {
       install.packages(lib)
